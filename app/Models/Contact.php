@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Contact extends Model
 {
@@ -14,4 +15,20 @@ class Contact extends Model
         'company_id', 
         'position_id'
     ];
+
+    public function company(): HasOne
+
+    {
+
+        return $this->hasOne(Company::class, 'companies_id');
+
+    }
+
+    public function position(): HasOne
+
+    {
+
+        return $this->hasOne(Position::class, 'positions_id');
+
+    }
 }

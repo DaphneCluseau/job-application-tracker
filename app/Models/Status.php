@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Status extends Model
 {
@@ -20,4 +21,12 @@ class Status extends Model
      */
 
     protected $fillable = ['statuses_name'];
+
+    public function application(): HasMany
+
+    {
+
+        return $this->hasMany(Application::class, 'applications_id');
+
+    }
 }
