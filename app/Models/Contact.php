@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Contact extends Model
 {
@@ -16,11 +17,11 @@ class Contact extends Model
         'position_id'
     ];
 
-    public function company(): HasOne
+    public function company(): BelongsTo
 
     {
 
-        return $this->hasOne(Company::class, 'companies_id');
+        return $this->belongsTo(Company::class, 'companies_id');
 
     }
 
