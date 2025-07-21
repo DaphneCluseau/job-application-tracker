@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class JobInterview extends Model
 {
@@ -14,4 +16,20 @@ class JobInterview extends Model
         'application_id', 
         'job_interview_contacts_id'
     ];
+
+    public function application(): HasOne
+
+    {
+
+        return $this->hasOne(Application::class, 'applications_id');
+
+    }
+
+    public function jobInterviewContact(): HasMany
+
+    {
+
+        return $this->hasMany(JobInterviewContact::class, 'job_interview_contacts_id');
+
+    }
 }
