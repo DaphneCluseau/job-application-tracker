@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ApplicationSkill extends Controller
+class FileController extends Controller
 {
     //
 }
